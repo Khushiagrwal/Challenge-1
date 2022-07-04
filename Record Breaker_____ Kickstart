@@ -1,0 +1,36 @@
+/*
+Isyana is given the number of visitors at her local theme park on Consecutive days. the number of visitors on the day i-th day is V . A day is record breaker if 
+the satisfie both of the following conditions:
+>> The number of visitor on the days is strictly larger than the number of visitor on each of the previous days.
+>> Either it is the last day , or the number of visitors on the day is strictly larger than the number of visitors on the following days.
+Note that the very first day could be a record breaking day.
+*/
+
+# include<iostream>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    int array[n],p,max=0;
+    for(p=0;p<n;p++)
+    {
+        cin>>array[p];
+    }
+    p=0;
+    int l=0,l1=0;
+    while(p<n)
+    {
+        if(array[p]>max)
+        {
+            max=array[p];
+            if(array[p]>array[p+1])
+            {
+                l++;
+                p++;
+            }
+        }
+        p++;
+    }
+    cout<<"Record Breaker is"<<l;
+}
