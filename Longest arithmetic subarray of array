@@ -1,0 +1,36 @@
+/*
+An airthmetic array is an that contain at least and the difference between two consecutive integers are equal. Sarasvati has an array of N non-negative integers.The ith 
+integer of the array A. She want to choose a contiguous airthmetic subarray from her array that has the maximum length . 
+*/
+
+#include<iostream>
+#include<climits>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    int array[n],max_len=INT_MIN,len=2;
+    for (int p=0;p<n;p++)
+    {
+        cin>>array[p];
+    }
+    int pd=array[1]-array[0];
+    for (int p=1;p<n;p++)
+    {
+        if (array[p+1]-array[p]==pd)
+        {
+            len++;
+            max_len=max(max_len,len);
+        }
+        else
+        {
+            len=2;
+            pd=array[p+1]-array[p];
+        }
+        
+    }
+    cout<<"Maximum Airthmetic Length is "<<max_len;
+    
+}
+
